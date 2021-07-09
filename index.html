@@ -1,0 +1,13 @@
+<h1>Ma Liste</h1>
+<a href="/admin">Admin page</a>
+<br />
+<form method="POST" action="/save">
+    <label>Message:</label><br />
+    <textarea name="message"></textarea><br />
+    <input type="submit" value="Ajouter">
+</form>
+<ul>
+    {{range .Messages}}
+        <li>{{.Text}}</li>
+    {{end}}
+</ul>
