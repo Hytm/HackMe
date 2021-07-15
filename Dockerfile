@@ -9,7 +9,7 @@ COPY main.go ./
 
 RUN CGO_ENABLED=0 GOOS=linux go build -mod=readonly -v -o hackme
 
-FROM scratch
+FROM alpine
 RUN apk add --no-cache ca-certificates
 
 COPY --from=builder /app/hackme /hackme
