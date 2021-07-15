@@ -16,8 +16,6 @@ import (
 	"github.com/julienschmidt/httprouter"
 )
 
-// file to download: https://storage.googleapis.com/nwlw-raw-data/sapp.zip
-
 const ADD_PREFIX = "Adding: "
 
 const INDEX = `
