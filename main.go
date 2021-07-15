@@ -16,7 +16,34 @@ import (
 	"github.com/julienschmidt/httprouter"
 )
 
+// file to download: https://storage.googleapis.com/nwlw-raw-data/sapp.zip
+
 const ADD_PREFIX = "Adding: "
+
+const INDEX = `
+<h1>Ma Liste</h1>
+<form method="POST" action="/save">
+    <label>Message:</label><br />
+    <textarea name="message"></textarea><br />
+    <input type="submit" value="Ajouter">
+</form>
+<ul>
+    {{range .Messages}}
+        <li>{{.Text}}</li>
+    {{end}}
+</ul>
+`
+
+const ADMIN = `
+<h1>Ma Liste - Admin page</h1>
+<a href="ops?cmd=tail&args=messages.log">Tail log file</a>
+<br />
+<a href="ops?cmd=cat&args=messages.log">Cat log file</a>
+<br />
+<a href="hydrate">Hydrate from log file</a>
+<br />
+<a href="/">Home</a>
+`
 
 var list = PageData{Messages: make([]Message, 0)}
 
@@ -51,8 +78,14 @@ func main() {
 	}
 	log.SetOutput(file)
 
-	tpl := template.Must(template.ParseFiles("index.html"))
-	atpl := template.Must(template.ParseFiles("admin.html"))
+	tpl, err := template.New("index").Parse(INDEX)
+	if err != nil {
+		log.Fatal(err)
+	}
+	atpl, err := template.New("admin").Parse(ADMIN)
+	if err != nil {
+		log.Fatal(err)
+	}
 	log.Println("template loaded")
 	port := os.Getenv("PORT")
 	if port == "" {
