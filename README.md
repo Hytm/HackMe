@@ -25,3 +25,4 @@ From there, you can imagine whatever you want to have an alert in Lacework.
 ## TODOs
 
 1. I'm working on a deployable hydra package that will fit. Just run a wget, unzip, and run the script inside the zip.
+2. Bundle html files in the go package for usability
