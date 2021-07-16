@@ -10,7 +10,7 @@ This is an easily portable application you can run on any host to demonstrate di
 
 ## How to use it
 
-You can use the Docker version with the dockerfile. It'll build the app and create the container after that. The file is compatible with GCP Cloud Run.
+You can use the Docker version with the dockerfile. It'll build the app and create the container after that. This is compatible with GCP Cloud Run.
 
 Otherwise you can run the linux binary directly (hackme file).
 
