@@ -13,6 +13,9 @@ Prepare a VM with ssh enabled and get its ip to launch hydra against this specif
 Also you can add a user Molly with this password 04Darter_Dew to ensure Hydra will be able to connect on the VM you hosted.
 You can change the username and adapt the 7th command.
 
+The sapp.tar.gz file is containing hydra pre-compiled for Ubuntu (only tested on Ubuntu), the rockyou.txt password file, and the launch script to be set in the url to avoid PATH issues.
+The file is available directly from here and also from the link in the steps below.
+
 # Steps
 
 1. Start browsing the app at http://{yourhost}:{port}/, explaining this is the same scenario as having [EVAL command available in Redis](https://redis.io/commands/eval).
