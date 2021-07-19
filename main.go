@@ -173,6 +173,7 @@ func adminHandler(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	out, err := c.CombinedOutput()
 	if err != nil {
 		log.Printf("unable to serve page: %s\n", err.Error())
+		log.Println(string(out))
 		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 		w.WriteHeader(http.StatusInternalServerError)
 		io.WriteString(w, "unable to run the command")
