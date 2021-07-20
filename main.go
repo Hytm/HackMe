@@ -90,6 +90,12 @@ func main() {
 		port = "8000"
 	}
 
+	envAdmin := os.Getenv("HACKME_ADMIN_PAGE")
+	admin := true
+	if envAdmin == "0" {
+		admin = false
+	}
+
 	router := httprouter.New()
 	router.GET("/", func(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		tpl.Execute(w, list)
@@ -98,11 +104,13 @@ func main() {
 		tpl.Execute(w, list)
 	})
 	router.POST("/save", addHandler)
-	router.GET("/admin/", func(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-		atpl.Execute(w, nil)
-	})
-	router.GET("/admin/ops/", adminHandler)
-	router.GET("/admin/hydrate", hydrateHandler)
+	if admin {
+		router.GET("/admin/", func(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+			atpl.Execute(w, nil)
+		})
+		router.GET("/admin/ops/", adminHandler)
+		router.GET("/admin/hydrate", hydrateHandler)
+	}
 
 	log.Println("routes loaded")
 	m := NewTimerMiddleware(router)
