@@ -21,7 +21,3 @@ You have 2 endpoints available:
 ## Stories
 
 You can use the stories from examples folder, or build your own.
-
-## TODOs
-
-1. I'm working on a deployable hydra package that will fit. Just run a wget, unzip, and run the script inside the zip.

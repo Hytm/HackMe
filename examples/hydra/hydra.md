@@ -10,7 +10,7 @@ Hitting http://{yourhost}:{port}/admin lets you start the actual hack by passing
 # Prerequisites
 Prepare a VM with ssh enabled and get its ip to launch hydra against this specific machine.
 
-Also you can add a user Molly with this password 04Darter_Dew to ensure Hydra will be able to connect on the VM you hosted.
+Also you can add a user molly with this password 04Darter_Dew to ensure Hydra will be able to connect on the VM you hosted.
 You can change the username and adapt the 7th command.
 
 The sapp.tar.gz file is containing hydra pre-compiled for Ubuntu (only tested on Ubuntu), the rockyou.txt password file, and the launch script to be set in the url to avoid PATH issues.
